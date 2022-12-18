@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "lato", sans-serif;
+  color: black;
+  background-color: #FFF5E4;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 10px 0;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 300;
+  margin: 10px 0;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+img {
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+
+/*# sourceMappingURL=base_style.css.map */
