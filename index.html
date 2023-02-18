@@ -1,71 +1,75 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Panam clone</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>DOM</title>
 </head>
 <body>
-  <div class="navbar">
-    <div class="container flex">
-      <h1 class="logo">Panam</h1>
-        <nav>
-          <ul>
-            <li class="nav"><a href="index.html" class="outline">Inicio</a></li>
-            <li class="nav"><a href="comprar.html" class="outline">Comprar</a></li>
-            <li class="nav"><a href="quienes-somos.html" class="outline">Quienes somos</a></li>
-            <li class="nav"><a href="contacto.html" class="outline">Comprar</a></li>
-          </ul>
-        </nav>
-    </div>
-  </div>
-  <section class="showcase">
-    <div class="container">
-      <div class="grid">
-        <div class="grid-item-1">
-          <div class="showcase-text">
-            <h1>Productos nuevos disponibles en nuestra tienda fisicas y en linea</h1>
-            <p class="supporting-text">Explora nuestras ofertas!</p>
-          </div>
-          <div class="showcase-form">
-            <form action="">
-              <input type="text" class="campo" placeholder="Tenis, mochilas y ropa">
-              <input type="submit" class="btn" value="Buscar">
-            </form>
-            <p class="little-info">Oferta exclusivas en la tienda en linea</p>
-          </div>
-        </div>
+  <h1>Mis Zapatos</h1>
 
-        <div class="grid-item-2">
-          <div class="image">
-            <img src="images/sucursal.jpg" alt="sucursal">
-          </div>
-        </div>
-      </div>
+  <div id="zapatos-container"></div>
 
-    </div>
-  </section>
-  <footer>
-    <div class="container grid-3">
-      <div class="copyright">
-        <h1>PANAM</h1>
-        <p>Copyright &copy; 2022</p>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="" class="outline">Home</a></li>
-          <li><a href="" class="outline">Tutors</a></li>
-          <li><a href="" class="outline">Categories</a></li>
-        </ul>
-      </nav>
-      <div class="profiles">
-        <a href=""><em class="fab fa-twitter fa-2x"></em></a>
-        <a href=""><em class="fab fa-instagram fa-2x"></em></a>
-        <a href=""><em class="fab fa-facebook fa-2x"></em></a>
-        <a href=""><em class="fab fa-whatsapp fa-2x"></em></a>
-      </div>
-    </div>
-  </footer>
-  <script src="tarea.js"></script>
+  <button id="mostrar-btn">Mostrar productos</button>
+  <button id="ocultar-btn">Ocultar productos</button>
+
+  <div id="zapatos-container"></div>
+
+  <script>
+    // 1. Obtener el elemento h1
+    var h1Element = document.querySelector('h1');
+
+    // Cambiar el texto del elemento h1
+
+    //2. Crear un array con los elementos de la lista
+    var listaElementos = ['Elemento 1', 'Elemento 2', 'Elemento 3', 'Elemento 4'];
+
+    // Crear un elemento ul
+    var ulElement = document.createElement('ul');
+
+    // Recorrer el array y crear un elemento li para cada elemento
+    for (var i = 0; i < listaElementos.length; i++) {
+      var liElement = document.createElement('li');
+      liElement.textContent = listaElementos[i];
+      ulElement.appendChild(liElement);
+    }
+
+    // Añadir el elemento ul al documento HTML
+    document.body.appendChild(ulElement);
+
+    //3. 
+
+    let zapatos = [
+      { marca: 'Panam', stock: 8, precios: 190 },
+      { marca: 'Puma', stock: 7, precios: 199 },
+      { marca: 'Adidas', stock: 6, precios: 499.99 },
+      { marca: 'Converse', stock: 8, precios: 450 },
+    ];
+
+    let zapatosContainer = document.getElementById('zapatos-container');
+    let mostrarBtn = document.getElementById('mostrar-btn');
+    let ocultarBtn = document.getElementById('ocultar-btn');
+
+    for (let i = 0; i < zapatos.length; i++) {
+      let zapato = zapatos[i];
+      let zapatoElement = document.createElement('div');
+      zapatoElement.style.color = 'black';
+      zapatoElement.innerHTML = `
+        <p>Marca: <span style="color: red;">${zapato.marca}</span></p>
+        <p>Cantidad: <span style="color: red;">${zapato.stock}</span></p>
+        <p>Precio: <span style="color: red;">${zapato.precios}</span></p>
+      `;
+      zapatosContainer.appendChild(zapatoElement);
+    }
+
+    function mostrarProductos() {
+      zapatosContainer.style.display = 'block';
+    }
+
+    function ocultarProductos() {
+      zapatosContainer.style.display = 'none';
+    }
+
+    mostrarBtn.addEventListener('click', mostrarProductos);
+    ocultarBtn.addEventListener('click', ocultarProductos);
+  </script>
 </body>
 </html>
